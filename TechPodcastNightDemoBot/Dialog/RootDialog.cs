@@ -15,7 +15,8 @@ namespace TechPodcastNightDemoBot.Controllers
         private async Task MessageReceieved(IDialogContext context, IAwaitable<object> result)
         {
             await context.PostAsync("請問是哪個功能");
-            context.Call(new QuestionDialog(), this.AfterAskQuestion);
+            //context.Call(new QuestionDialog(), this.AfterAskQuestion);
+            context.Call(new QnAMakerDialog(), this.AfterAskQuestion);
         }
 
         private async Task AfterAskQuestion(IDialogContext context, IAwaitable<bool> result)
